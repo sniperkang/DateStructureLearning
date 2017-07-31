@@ -5,3 +5,8 @@ CONFIG -= qt
 
 SOURCES += main.c
 
+HEADERS += \
+    sqlist.h \
+    linklist.h \
+    define.h
+
