@@ -69,3 +69,80 @@ Status ListDelete(LinkList *L, int i, ElemType *e)
     free(q);
     return OK;
 }
+
+void CreateListHead(LinkList *L, int n)
+{
+    LinkList p;
+    int i;
+    srand(time(0));
+    *L = (LinkList)malloc(sizeof(Node));
+    (*L)->next = NULL;
+    for(i=0; i<n; i++)
+    {
+        p = (LinkList)malloc(sizeof(Node));
+        p->data = rand() % 100 + 1;
+        p->next = (*L)->next;
+        (*L)->next = p;
+    }
+}
+
+//wrong
+void CreateListTail(Link *L, int n)
+{
+    LinkList p;
+    int i;
+    srand(time(0));
+    *L = (LinkList)malloc(sizeof(Node));
+    (*L)->next = NULL;
+    for(i=0; i<n; i++)
+    {
+        p = (LinkList)malloc(sizeof(Node));
+        p->date = rand() % 100 + 1;
+        (*L)->next = p;
+        p = (*L)->next;
+    }
+}
+
+void CreateListTail1(LinkList *L, int n)
+{
+    LinkList p, r;
+    int i;
+    srand(time(0));
+    *L = (LinkList)malloc(sizeof(Node));
+    r = *L;
+    for(i=0; i<n; i++)
+    {
+        p = (Node *)malloc(sizeof(Node));
+        p->date = rand() % 100 + 1;
+        r->next = p;
+        r = p;
+    }
+    r->next = NULL;
+}
+
+//wrong
+void ClearList(LinkList *L)
+{
+    LinkList p, q;
+    p = *L;
+    while(p->next != NULL)
+    {
+        q = p->next;
+        free(p);
+        p=q;
+    }
+}
+
+Status ClearList(LinkList *L)
+{
+    LinkList p, q;
+    p = (*L)->next;
+    while(p)
+    {
+        q = p->next;
+        free(p);
+        p=q;
+    }
+    (*L)->next = NULL;
+    return OK;
+}
