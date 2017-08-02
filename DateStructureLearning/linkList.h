@@ -1,4 +1,4 @@
-#include <define.h>
+#include <myDefine.h>
 
 #ifndef LINKLIST
 #define LINKLIST

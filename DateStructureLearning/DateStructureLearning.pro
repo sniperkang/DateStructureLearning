@@ -6,7 +6,9 @@ CONFIG -= qt
 SOURCES += main.c
 
 HEADERS += \
-    sqlist.h \
-    linklist.h \
-    define.h
+    myDefine.h \
+    linkList.h \
+    sqList.h \
+    sqStack.h \
+    staticLinkList.h
 

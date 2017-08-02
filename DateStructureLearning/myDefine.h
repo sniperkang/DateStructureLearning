@@ -11,3 +11,5 @@
 
 typedef int ElemType;
 typedef int Status;
+
+typedef int SElemType;
